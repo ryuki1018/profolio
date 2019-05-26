@@ -1,0 +1,54 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.flex_box {
+    display: flex;
+}
+
+// .my_menu {
+//     background: pink;
+// }
+
+.items {
+    // background-color: pink;
+    // width: 100%;
+    // height: 100vh;
+  
+    border-radius: 5px;
+}
+
+.items ul li {
+    list-style:none;
+}
+
+.item_boxes {
+    width:80%;
+    height: 150px;
+    background-color:#f8f8f8;
+    margin: 10px auto;
+    border-radius: 5px;
+    box-shadow:2px 2px 2px rgba(0,0,0,0.6);
+}
+
+.item_boxes li:first:child {
+    border-bottom:1px solid gray;
+}
+
+.image_content > img{
+    width:150px;
+    height:150px;
+    border-radius:5px;
+}
+
+.text_contents {
+    margin-left:5px;
+}
+
+.btn {
+    margin:10px 0;
+}
+
+.text_title {
+    
+}

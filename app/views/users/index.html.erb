@@ -1,0 +1,64 @@
+    <div class="flex_box">
+        <div class="col-sm-9">
+            <p>みんなのポートフォリオを見てみよう</p>
+        </div>
+        
+<% if logged_in? %>
+        <div class="col-sm-3">
+    <%= link_to 'マイページ', users_show_path(current_user), class: 'btn btn-primary col-sm-12' %>
+
+        </div>
+
+<% else %>
+        <div class="col-sm-3 btn">
+    <%= link_to '会員登録', signup_path, class: 'btn btn-primary col-sm-12' %>
+    <%= link_to 'ログイン', login_path, class: 'btn btn-success col-sm-12' %> 
+        </div>
+
+<% end %>
+        
+    </div>
+    <div class="items">
+        
+    
+        <ul>
+    <% @items.each do |item| %> 
+    
+            <li>
+                <div class="item_boxes flex_box">
+                    <div class="image_content">
+                        <img src="/img/<%= item.img_name %>">
+                    </div>
+                    <div class="text_contents">
+                        <table>
+                            <tr>
+                                <th>タイトル</th>
+                                <th><%= item.title %></th>
+                            </tr>
+                            <tr>
+                                <td>紹介</td>
+                                <td><%= item.content %></td>
+                            </tr>
+                            <tr>
+                                <td>produced by</td>
+                                <td><%= item.user.name %></td>
+                            </tr>
+                            
+                        </table>
+                        <%= link_to '詳細へ', item %>
+                        <!--<div>-->
+                        <!--    <p>タイトル：<%= item.title %></p>-->
+                        <!--    <p>詳細    ：<%= item.content %></p>-->
+                        <!--</div>-->
+                        <!--<div class="hoge">-->
+                        <!--    <p>produced by <%= item.user.name %></p>-->
+                        <!--    <%= link_to '詳細ページへ', items_show_path(item.id) %> -->
+                        <!--</div>-->
+
+                    </div>
+                </div>
+            </li>
+    <% end %>
+
+        </ul>
+    </div>
