@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include SessionsHelper
   before_action :require_user_logged_in, only: [:show, :edit, :new, :create, :updat]
-  before_action :correct_user, only: [:show, :edit, :new, :create, :update]
+  
   
   def index
       # @user = user.find(params[:id])
