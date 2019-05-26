@@ -52,5 +52,5 @@ production:
   encoding: unicode
   pool: 5
   database: profolios_production
-  username: profolios-board
+  username: profolios
   password: <%= ENV['MESSAGE-BOARD_DATABASE_PASSWORD'] %>
