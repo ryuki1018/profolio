@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: profolios_production
-  username: profolios
-  password: <%= ENV['PROFOLIOS_DATABASE_PASSWORD'] %>
+  username: profolios-board
+  password: <%= ENV['MESSAGE-BOARD_DATABASE_PASSWORD'] %>
