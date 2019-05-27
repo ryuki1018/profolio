@@ -1,0 +1,28 @@
+<%= form_with(model: current_user.relationships.find_by(follow_id: language.id),local: true, method: :delete) do |f| %>
+
+<% if current_user.following?(language)
+
+<%= hidden_field_tag :follow_id, language.id %>
+
+<%= f.submit language.lang,class: 'btn btn-danger btn-block' %>
+
+<% end %>
+
+<% else %>
+
+<%= form_with(model: current_user.relationships.build, local: true) do |f| %>
+
+<%= hidden_field_tag :follow_id, language.id %>
+
+<%= f.submit language.lang, class: 'btn btn-primary btn-block' %>
+
+<% end %>
+
+<% end %>
+
+<% end %>
+
+
+
+
+

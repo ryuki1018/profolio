@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_24_134940) do
+ActiveRecord::Schema.define(version: 2019_05_27_032606) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -21,6 +21,22 @@ ActiveRecord::Schema.define(version: 2019_05_24_134940) do
     t.bigint "user_id"
     t.string "img_name"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "languages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "lang"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rlationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "follow_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follow_id"], name: "index_rlationships_on_follow_id"
+    t.index ["user_id", "follow_id"], name: "index_rlationships_on_user_id_and_follow_id", unique: true
+    t.index ["user_id"], name: "index_rlationships_on_user_id"
   end
 
   create_table "searches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -38,4 +54,6 @@ ActiveRecord::Schema.define(version: 2019_05_24_134940) do
   end
 
   add_foreign_key "items", "users"
+  add_foreign_key "rlationships", "languages", column: "follow_id"
+  add_foreign_key "rlationships", "users"
 end
