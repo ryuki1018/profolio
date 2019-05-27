@@ -10,11 +10,23 @@
     <%= f.label :content, '自己紹介' %>
     <%= f.text_area :content, class: "form-control" %>
         </div>
-  
+
+        <div class="form-group">
+    <!--<%= f.label :language, '使用言語' %><br>-->
+           
+
+        </div>
+
     <%= f.submit '編集を完了する', class: 'btn btn-primary' %>
     <% end %>
     
-    <%= render 'lang_follow' %>
+    <!--<% ['HTML','CSS','Perl','JavaScript','Vue','Ruby','Ruby on Rails','PHP','Laravel','Java','Spring'].each do |lang| %>-->
+    <!--<%= lang %>-->
+    <!--<%= check_box_tag 'langage_form[langs][]', lang%>-->
+    
+    <!--<% end %>-->
+  
+
     </div>
     
 </div>

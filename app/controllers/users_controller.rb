@@ -1,19 +1,17 @@
 class UsersController < ApplicationController
   include SessionsHelper
-  before_action :require_user_logged_in, only: [:show, :edit, :new, :create, :updat]
+  before_action :require_user_logged_in, only: [:show, :edit,  :updat]
   
   
   def index
-      # @user = user.find(params[:id])
+
    
       if params[:content]
         @items = Item.where(['content LIKE ?', "#{params[:content]}"])
       else
         @items = Item.order(id: :desc).page(params[:page]).per(20)
       end
-  
-    #@items = Item.order(id: :desc).page(params[:page]).per(20)
-    #@items = Item.search(params[:search])
+
   end
   
   def edit
@@ -31,8 +29,9 @@ class UsersController < ApplicationController
   end
 
   def create
+  
     @user = User.new(user_params)
-    
+
     if @user.save
       flash[:success] = 'ユーザー登録完了しました'
       redirect_to root_url
@@ -45,6 +44,7 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
+ 
     if @user.update(user_params)
       flash[:success] ='編集が完了しました'
       redirect_to @user
@@ -56,9 +56,9 @@ class UsersController < ApplicationController
   
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :content)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :content, :language)
+    
   end
-  
 
-  
+
 end

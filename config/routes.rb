@@ -22,17 +22,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   
   get 'signup', to: 'users#new'
-  resources :users do
-    member do
-      get :followings
-      # get :followers
-    end
-  end
-  resources :languages, only: [:create, :destroy] do
-    member do
-      get :followers
-    end
-  end
+  resources :users 
+
   
   resources :items
   resources :relationships, only: [:create, :destroy]

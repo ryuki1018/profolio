@@ -10,23 +10,6 @@ class User < ApplicationRecord
   
   has_secure_password     
   has_many :items
-      has_many :reverses_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
-    has_many :followers, through: :reverses_of_relationships, source: :user
-
-  
-    
-    def follow(other_language)
-      self.relationships.find_or_create_by(follow_id: other_language.id)
-    end
-    
-    def unfollow(other_language)
-      relationship = self.relationships.find_by(follow_id: other_language.id)
-      relationship.destroy if relationship
-    end
-    
-    def following?(other_language)
-      self.followings.include?(other_language)
-    end
   
     def self.search(search)
       if search

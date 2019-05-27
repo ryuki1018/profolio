@@ -1,4 +1,4 @@
-  <div class="flex_box">
+  <div class="row mt-5">
     <div class="col-sm-8">
   <% if item_nil %>
 
@@ -31,18 +31,13 @@
                                 <td>produced by</td>
                                 <td><%= item.user.name %></td>
                             </tr>
-                            
+                            <tr>
+                              <td><%= link_to '詳細へ', item, class: 'btn btn-primary' %></td>
+                              <td><%= link_to '編集する', edit_item_path(item), class: 'btn btn-primary'%></td>
+                            </tr>
                         </table>
-                       <%= link_to '詳細へ', item %>
-                        <!--<div>-->
-                        <!--    <p>タイトル：<%= item.title %></p>-->
-                        <!--    <p>詳細    ：<%= item.content %></p>-->
-                        <!--</div>-->
-                        <!--<div class="hoge">-->
-                        <!--    <p>produced by <%= item.user.name %></p>-->
-                        <!--    <%= link_to '詳細ページへ', items_show_path(item.id) %> -->
-                        <!--</div>-->
-
+                       
+                       
                     </div>
                 </div>
             </li>
@@ -70,6 +65,9 @@
           <tr>
             <td><%= @user.content %></td>
           </tr>
+          <tr>
+            <td><%= @user.language %></td>
+          </tr>
         </table>
 
 <%= link_to 'ポートフォリオを投稿する', new_item_path(@user.id), class: 'btn btn-primary' %>
@@ -91,4 +89,3 @@
     </div>
   </div>
   
-  <!-ポートフォリオの一覧表示--->

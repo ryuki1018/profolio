@@ -4,6 +4,8 @@
 
 
 
+
+
 .flex_box {
     display: flex;
 }
@@ -70,7 +72,7 @@
 }
 
 .conA {
-    width:50%;
+    width:90%;
     height:50vh;
     padding-top:35vh;
 
@@ -84,3 +86,14 @@
 
 }
 
+@media (min-width:768px) {
+    .conA {
+    width:50%;
+    height:50vh;
+    padding-top:35vh;
+
+    margin: 0 auto;
+    height:100vh;
+    background-color:rgba(255,255,255,0.3);
+    }
+}

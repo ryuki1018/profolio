@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   include SessionsHelper
- before_action :correct_user, only: [:edit,  :update]
+ before_action :correct_user, only: [:edit,:update]
   def new
     @item = Item.new
   end
@@ -27,6 +27,19 @@ class ItemsController < ApplicationController
   end
 
   def edit
+     @item = Item.find(params[:id])
+  end
+  
+  def update
+    @item = Item.find(params[:id])
+     
+    if @item.update(item_params)
+      flash[:success] ='編集が完了しました'
+      redirect_to @item
+    else
+      flash[:danger] = '不正です。'
+      render :edit
+    end
   end
 
   def destroy
@@ -35,7 +48,7 @@ class ItemsController < ApplicationController
   private
   
   def item_params
-    params.require(:item).permit(:title, :url, :content, :img_name)
+    params.require(:item).permit(:title, :url, :content)
   end
   
 

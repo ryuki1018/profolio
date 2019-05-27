@@ -1,12 +1,30 @@
 
-<h1><%= @item.title %></h1>
+<div class="row mt-5">
+    <div class="offset-sm-3 col-sm-6 text-center">
+    <table class='table table-striped'>
+        <tr>
+            <th>タイトル:</th>
+            <th><%= @item.title %></th>
+        </tr>
+        <tr>
+            <td>紹介:</td>
+            <td><%= @item.content%></td>
+        </tr>
+        <tr>
+            <td>URL:</td>
+            <td><%= @item.url %></td>
+        </tr>
+        <tr>
+            <td><%= link_to '編集する', edit_item_path(@item), class: 'btn btn-primary'%></td>
+        </tr>
+        
+    </table>
+ 
+    
+
+    </div>
+</div>
 
 
-<p>チェックボックスで保存した値を表示したい</p>
-<ul>
-    <li>例</li>
-    <li>Ruby</li>
-    <li>Ruby on Rails</li>
-    <li>CSS</li>
-</ul>
-ワード一つ一つ、後ほどCSSでみためを変える予定です。
+
+
