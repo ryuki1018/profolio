@@ -1,0 +1,13 @@
+     <% if current_user.liking?(items) %>
+
+            <% items.each do |item| %>
+            
+              <li><%= item.user.name %>さんの
+              <%= link_to item.title, item %></li>
+          <% end %>
+      <% end %>
+
+
+
+
+

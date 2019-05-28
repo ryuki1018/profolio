@@ -10,9 +10,24 @@ class User < ApplicationRecord
   
   has_secure_password     
   has_many :items
+  has_many :relationships
+  has_many :likes, through: :relationships,source: :item
+  
+  def like(other_item)
+    self.relationships.find_or_create_by(item_id: other_item.id)
+  end
+  
+  def unlike(other_item)
+    relationship = self.relationships.find_by(item_id: other_item.id)
+    relationship.destroy if relationship
+  end
+  
+  def liking?(other_item)
+    self.likes.include?(other_item)
+  end
   
     def self.search(search)
-      if search
+      if search 
           Item.where(['content LIKE ?', "#{search}"])
       else
         Item.all

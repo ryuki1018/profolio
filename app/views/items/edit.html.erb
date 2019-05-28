@@ -3,25 +3,27 @@
         <h1><%= @item.title %>の編集</h1>
     </div>
     
-    <%= form_with(model: @item, local: true) do |f| %>
-        <div class="form-group">
-    <%= f.label :title ,'タイトル' %>
-    <%= f.text_field :title, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-    <%= f.label :url, 'URL' %>
-    <%= f.url_field :url, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-    <%= f.label :content, '詳細' %>
-    <%= f.text_area :content, class: 'form-control' %>
-        </div>
-        <div class="form-group">
+    <!--<%= form_with(model: @item, local: true) do |f| %>-->
+    <!--    <div class="form-group">-->
+    <!--<%= f.label :title ,'タイトル' %>-->
+    <!--<%= f.text_field :title, class: 'form-control' %>-->
+    <!--    </div>-->
+    <!--    <div class="form-group">-->
+    <!--<%= f.label :url, 'URL' %>-->
+    <!--<%= f.url_field :url, class: 'form-control' %>-->
+    <!--    </div>-->
+    <!--    <div class="form-group">-->
+    <!--<%= f.label :content, '詳細' %>-->
+    <!--<%= f.text_area :content, class: 'form-control' %>-->
+    <!--    </div>-->
+    <!--    <div class="form-group">-->
     <!--<%= f.label :img, 'イメージ画像' %><br>-->
     <!--<%= f.file_field :img %>-->
-        </div>
-        
+    <!--    </div>-->
+    <!--<%= f.submit 'ポートフォリオを編集する', class: 'btn btn-primary' %>-->
+    <%= render 'edit_field', item: @item %>
+    
 
-    <%= f.submit 'ポートフォリオを編集する', class: 'btn btn-primary' %>
+    
     <% end %>
 </div>

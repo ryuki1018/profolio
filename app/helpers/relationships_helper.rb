@@ -1,5 +1,2 @@
 module RelationshipsHelper
-
-    
-
 end

@@ -15,7 +15,10 @@
             <td><%= @item.url %></td>
         </tr>
         <tr>
+            <% if current_user.liking?(@item) %>
             <td><%= link_to '編集する', edit_item_path(@item), class: 'btn btn-primary'%></td>
+            <% end %>
+            <td><%= render 'likes/likes', item: @item%></td>
         </tr>
         
     </table>

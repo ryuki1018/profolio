@@ -40,6 +40,7 @@
                         <img src="/img/<%= item.img_name %>">
                     </div>
                     <div class="text_contents">
+                       
                         <table class="text_content">
                             <tr>
                                 <th><%= item.title %></th>
@@ -50,11 +51,22 @@
                             </tr>
                             <tr>
 
-                                <td><%= item.user.name %></td>
+                                <td>製作者:<%= item.user.name %></td>
+                                <td><%= item.url %></td>
+                            </tr>
+                            <tr>
+                                <td><%= link_to '詳細へ', item %></td>
+                                <td>                      
+                                    <% if logged_in? %>
+                                    <%= render 'likes/likes', item: item %>
+                                     <% end %>
+                                 </td>
                             </tr>
                             
                         </table>
-                        <%= link_to '詳細へ', item %>
+                      
+                        
+
                         <!--<div>-->
                         <!--    <p>タイトル：<%= item.title %></p>-->
                         <!--    <p>詳細    ：<%= item.content %></p>-->
